@@ -1,3 +1,21 @@
+// Logo Start
+var brand = document.querySelector("#brand"); 
+var sun = document.querySelector("#sun");
+sun.style.display = "none";
+var moon = document.querySelector("#moon");
+
+brand.onclick = function(){
+    if(sun.style.display === "none"){
+        moon.style.display = "none";
+        sun.style.display = "block";
+        console.log(1);
+    } else{
+        sun.style.display = "none";
+        moon.style.display = "block";
+    }
+};
+// Logo End
+
 // Project Start
 // Project filterable image hover effect start  
 let list = document.querySelectorAll('.list');

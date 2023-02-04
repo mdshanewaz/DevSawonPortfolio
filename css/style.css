@@ -93,10 +93,39 @@ section{
 
 .logo a{
     position: relative;
+    cursor: pointer;
 }
 
 .logo img{
     width: 100%;
+    align-items: center;
+}
+
+.logo .theme-mode{
+    flex: 0 0 100%;
+    width: 100%;
+    position: relative;
+}
+
+.logo .theme-mode .mode{
+    display: flex;
+    flex: 0 0 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: #fff;
+    font-size: 20px;
+}
+
+.logo .theme-mode .mode i{
+    background-color: var(--skin-color);
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.logo .theme-mode #moon{
+    padding: 10px 13px;
 }
 
 .aside .nav{
@@ -996,20 +1025,13 @@ h3.my-profession{
     margin-bottom: 40px;
 }
 
-.service-benefits{
-    display: flex;
-    flex: 0 0 100%;
-    max-width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
-.service-benefits .service-benefits-item{
+.service-benefits-item{
     flex: 0 0 25%;
     max-width: 25%;
+    margin-bottom: 30px;
 }
 
-.service-benefits .service-benefits-item .service-benefits-inner{
+.service-benefits-item .service-benefits-inner{
     width: 100%;
     background-color: var(--bg-black-100);
     border: 1px solid var(--bg-black-50);
@@ -1021,11 +1043,11 @@ h3.my-profession{
     align-items: center;
 }
 
-.service-benefits .service-benefits-item .service-benefits-inner:hover{
+.service-benefits-item .service-benefits-inner:hover{
     box-shadow: 0 0 20px rgba( 48, 46, 77, 0.15);
 }
 
-.service-benefits .service-benefits-item .service-benefits-inner #service-circle{
+.service-benefits-inner #service-circle{
     position: relative;
     height: 210px;
     width: 210px;
@@ -1036,7 +1058,7 @@ h3.my-profession{
     align-items: center;
 }
 
-.service-benefits .service-benefits-item .service-benefits-inner #service-circle::before{
+.service-benefits-item .service-benefits-inner #service-circle::before{
     content: "";
     position: absolute;
     width: 190px;
@@ -1045,14 +1067,14 @@ h3.my-profession{
     background-color: var(--bg-black-900);
 }
 
-.service-benefits .service-benefits-item .service-benefits-inner #service-circle #progress-value{
+.service-benefits-item .service-benefits-inner #service-circle #progress-value{
     position: relative;
     font-size: 40px;
     font-weight: 600;
     color: var(--text-black-700);
 }
 
-.service-benefits .service-benefits-item .service-benefits-inner .progress-text{
+.service-benefits-item .service-benefits-inner .progress-text{
     font-size: 20px;
     font-weight: 400;
     color: var(--text-black-900);
@@ -1274,7 +1296,7 @@ h3.my-profession{
     border: 2px solid var(--bg-black-100);
 }
 
-@media(max-width: 1199px){
+@media(max-width: 1099px){
     .aside{
         left: -270px;
     }
@@ -1286,6 +1308,11 @@ h3.my-profession{
     .about .about-content .personal-info .info-item p span{
         display: block;
         margin-left: 0;
+    }
+
+    .service-benefits-item{
+        flex: 0 0 50%;
+        max-width: 50%;
     }
 }
 
@@ -1325,11 +1352,6 @@ h3.my-profession{
         width: 140px;
         height: 140px;
     }
-
-    .service-benefits .service-benefits-item{
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
 }
 
 @media(max-width: 767px){
@@ -1355,17 +1377,21 @@ h3.my-profession{
 }
 
 @media(max-width: 479px){
-    .contact .contact-info-item{
+    .service-benefits-item{
         flex: 0 0 100%;
         max-width: 100%;
     }
-
     .review-container{
         margin-bottom: 72%;
     }
 
     .review-container .container-row-1{
         margin-top: 40%;
+    }
+
+    .contact .contact-info-item{
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 
     .contact .contact-form .card .card-box{

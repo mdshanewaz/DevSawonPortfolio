@@ -1,10 +1,58 @@
+// Aside Start
+const nav = document.querySelector(".nav"),
+    navList = nav.querySelectorAll("li"),
+    totalNavList = navList.length,
+    allSection = document.querySelectorAll("section"),
+    totalSection = allSection.length;
+
+    for(let i=0; i<totalNavList; i++){
+        const a = navList[i].querySelector("a");
+        a.addEventListener("click", function(){
+            for(let i=0; i<totalSection; i++){
+                allSection[i].classList.remove("back-section");
+            }
+            for(let j=0; j<totalNavList; j++){
+                if(navList[j].querySelector("a").classList.contains("active")){
+                    allSection[j].classList.add("back-section");
+                }
+                navList[j].querySelector("a").classList.remove("active");
+            }
+            this.classList.add("active");
+            showSection(this);
+        });
+    }
+
+    function showSection(element){
+        for(let i=0; i<totalSection; i++){
+            allSection[i].classList.remove("active");
+        }
+        const target = element.getAttribute("href").split("#")[1];
+        document.querySelector("#" + target).classList.add("active");
+    }
+
+    const navTogglerBtn = document.querySelector(".nav-toggler"),
+        aside = document.querySelector(".aside");
+
+        navTogglerBtn.addEventListener("click", () => {
+            asideSectionTogglerBtn();
+        });
+
+        function asideSectionTogglerBtn(){
+            aside.classList.toggle("open");
+            navTogglerBtn.classList.toggle("open");
+        }
+// Aside End
+
 // Logo Start
-var brand = document.querySelector("#brand"); 
+// Light and Dark mode
+var DaybrandNight = document.querySelector("#brand"); 
 var sun = document.querySelector("#sun");
 sun.style.display = "none";
 var moon = document.querySelector("#moon");
+document.body.classList.toggle("dark");
 
-brand.onclick = function(){
+DaybrandNight.onclick = function(){
+    document.body.classList.toggle("dark");
     if(sun.style.display === "none"){
         moon.style.display = "none";
         sun.style.display = "block";
@@ -15,6 +63,14 @@ brand.onclick = function(){
 };
 // Logo End
 
+// Home Start
+var typed = new Typed(".typing",{
+    strings: ["", "Software Engineer", "Web Designer", "Web Developer", "Data Scientist", "Cyber Specialist"],
+    typeSpeed: 100,
+    BackSpeed: 60,
+    loop: true
+});
+// Home End
 // Project Start
 // Project filterable image hover effect start  
 let list = document.querySelectorAll('.list');

@@ -7,7 +7,11 @@
     <title>Dev Sawon - My Portfolio</title>
     <link rel="shortcut icon" href="img/Logo_1.3-removebg-preview.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
+    <!--Fontawesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!--Type-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" referrerpolicy="no-referrer"></script>
+    <!--mailJS-->
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
     </script>
@@ -37,11 +41,11 @@
                 <span></span>
             </div>
             <ul class="nav">
-                <li><a href="#" class="active"><i class="fa-solid fa-house"></i>HOME</a></li>
-                <li><a href="#"><i class="fa-solid fa-user"></i>ABOUT</a></li>
-                <li><a href="#"><i class="fa-solid fa-list-check"></i>PROJECTS</a></li>
-                <li><a href="#"><i class="fa-solid fa-briefcase"></i>SERVICES</a></li>
-                <li><a href="#"><i class="fa-solid fa-comments"></i>CONTACT</a></li>
+                <li><a href="#home-section" class="active"><i class="fa-solid fa-house"></i>HOME</a></li>
+                <li><a href="#about-section"><i class="fa-solid fa-user"></i>ABOUT</a></li>
+                <li><a href="#project-section"><i class="fa-solid fa-list-check"></i>PROJECTS</a></li>
+                <li><a href="#service-section"><i class="fa-solid fa-briefcase"></i>SERVICES</a></li>
+                <li><a href="#contact-section"><i class="fa-solid fa-comments"></i>CONTACT</a></li>
             </ul>
             <div class="footer">
                 <p>Developed by Sawon.<br>All rights are preserved to &copy; Dev Sawon</p>
@@ -51,7 +55,7 @@
         <!--Main Content Start-->
         <div class="main-content">
             <!--Home Section Start-->
-            <section class="home">   
+            <section class="home active" id="home-section">   
                 <div class="container">
                     <div class="row">
                         <div class="home-info padd-15">
@@ -59,7 +63,7 @@
                             <h3 class="hello">Hi, This is <span class="name">Shah Newaz Sawon</span></h3>
                             <h3 class="my-profession">I'm a <span class="typing">Web Developer</span></h3>
                             <p>A dynamic, proactive, responsible and hard-working person who wants to enhance knowledge and capability by working in a dynamic organization that prides itself in giving substantial responsibility to new talent.</p>
-                            <a href="#contact" class="btn hire-me"><i class="fas fa-paper-plane" aria-hidden="true"></i> Contact Me</a>
+                            <a href="#about-section" class="btn hire-me"><i class="fa fa-address-book" aria-hidden="true"></i> More About Me</a>
                         </div>
                         <div class="home-img padd-15">
                             <img src="img/my-photo.png" alt="">
@@ -69,7 +73,7 @@
             </section>
             <!--Home Section End-->
             <!--About Section Start-->
-            <section class="about">
+            <section class="about" id="about-section">
                 <div class="container">
                     <div class="row">
                         <div class="section-title padd-15">
@@ -80,7 +84,7 @@
                         <div class="about-content padd-15">
                             <div class="row">
                                 <div class="about-text padd-15">
-                                    <h3>This is Shah Newaz and I'm <span>Web Developer</span></h3>
+                                    <h3>This is Shah Newaz, and I'm a <span>Software Engineer</span></h3>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci in, repellat, laboriosam officiis consequuntur corporis voluptatum debitis veniam velit alias doloribus quod minima dolore optio, accusamus laudantium eius provident quis?</p>
                                 </div>
                             </div>
@@ -225,7 +229,7 @@
                                     <div class="row">
                                         <div class="buttons padd-15">
                                             <a href="doc/CV_of_Md_Sha_Newaz.pdf" class="btn"><i class="fa fa-download"></i> Download CV</a>
-                                            <a href="#contact" class="btn"><i class="fa fa-address-book" aria-hidden="true"></i> Hire Me</a>
+                                            <a href="#contact-section" class="btn"><i class="fas fa-paper-plane" aria-hidden="true"></i> Hire Me</a>
                                         </div>
                                     </div>    
                                 </div>
@@ -367,7 +371,7 @@
             <!--About Section End-->
 
             <!--Project Section Start-->
-                <section class="project">
+                <section class="project" id="project-section">
                     <div class="container">
                         <div class="row">
                             <div class="section-title padd-15">
@@ -614,7 +618,7 @@
             <!--Project Section End-->
 
             <!--Service Section Start-->
-            <section class="service">
+            <section class="service" id="service-section">
                 <div class="container">
                     <div class="row">
                         <div class="section-title padd-15">
@@ -815,7 +819,7 @@
             <!--Service Section End-->
 
             <!--Contact Section Start-->
-            <section class="contact">
+            <section class="contact" id="contact-section">
                 <div class="container">
                     <div class="row">
                         <div class="section-title padd-15">

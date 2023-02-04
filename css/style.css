@@ -18,6 +18,15 @@
     box-sizing: border-box;
 }
 
+body.dark{
+    --bg-black-900: #151515;
+    --bg-black-100: #222222;
+    --bg-black-50: #393939;
+    --text-black-900: #ffffff;
+    --text-black-700: #e9e9e9;
+    --skin-color: #08f100;
+}
+
 body{
     line-height: 1.5;
     font-size: 16px;
@@ -29,11 +38,34 @@ section{
     min-height: 100%;
     display: block;
     padding: 0 30px;
-    opacity: 1;    
+    opacity: 1;
+    position: fixed;
+    left: 270px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow-y: auto;
+    overflow-x: hidden;    
 }
 
-.main-content{
-    padding-left: 270px;
+section.active{
+    z-index: 2;
+    opacity: 1;
+    animation: slideSection 1s ease;
+}
+
+@keyframes slideSection{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+section.back-section{
+    z-index: 1;
 }
 
 .padd-15{
@@ -83,6 +115,7 @@ section{
     justify-content: center;
     align-items: center;
     border-right: 1px solid var(--bg-black-50);
+    transition: all 0.5s ease;
 }
 
 .logo{
@@ -146,6 +179,7 @@ section{
     align-items: center;
     justify-content: center;
     display: none;
+    transition: all 0.5s ease;
 }
 
 .aside .nav-toggler span{
@@ -154,6 +188,10 @@ section{
     background: var(--skin-color);
     display: inline-block;
     position: relative;
+}
+
+.aside .nav-toggler.open span{
+    background: transparent;
 }
 
 .aside .nav-toggler span::before{
@@ -166,6 +204,11 @@ section{
     left: 0;
 }
 
+.aside .nav-toggler.open span::before{
+    transform: rotate(45deg);
+    top: 0;
+}
+
 .aside .nav-toggler span::after{
     content: '';
     height: 2px;
@@ -174,6 +217,11 @@ section{
     position: absolute;
     top: 6px;
     left: 0;
+}
+
+.aside .nav-toggler.open span::after{
+    transform: rotate(-45deg);
+    top: 0;
 }
 
 .aside .nav li{
@@ -205,7 +253,7 @@ section{
     font-size: 13px;
     font-weight: 500;
     text-align: center;
-    color: var(--text-black-700);
+    color: var(--skin-color);
     border-top: 1px solid var(--bg-black-50);
 }
 
@@ -587,6 +635,7 @@ h3.my-profession{
     flex: 0 0 100%;
     max-width: 100%;
     margin-bottom: 40px;
+    color: var(--text-black-700);
 }
 
 .project .porject-heading h2{
@@ -967,14 +1016,17 @@ h3.my-profession{
 
 .review-container .container-row-1 .row-1-col .card h2{
     margin-top: 40px;
+    color: var(--text-black-900);
 }
 
 .review-container .container-row-1 .row-1-col .card h4{
     margin-bottom: 20px;
+    color: var(--text-black-900);
 }
 
 .review-container .container-row-1 .row-1-col .card p{
     margin-bottom: 10px;
+    color: var(--text-black-700);
 }
 
 .review-container .container-row-1 .row-1-col .card i{
@@ -1301,8 +1353,22 @@ h3.my-profession{
         left: -270px;
     }
 
-    .main-content{
-        padding-left: 0;
+    .aside.open{
+        left: 0;
+    }
+
+    .aside .nav-toggler{
+        display: flex;
+        left: 30px;
+    }
+
+    .aside .nav-toggler.open{
+        
+        left: 270px;
+    }
+
+    section{
+        left: 0;
     }
 
     .about .about-content .personal-info .info-item p span{

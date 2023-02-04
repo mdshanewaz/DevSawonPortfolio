@@ -8,7 +8,6 @@ brand.onclick = function(){
     if(sun.style.display === "none"){
         moon.style.display = "none";
         sun.style.display = "block";
-        console.log(1);
     } else{
         sun.style.display = "none";
         moon.style.display = "block";

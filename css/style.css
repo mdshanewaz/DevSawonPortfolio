@@ -1355,7 +1355,27 @@ h3.my-profession{
     border: 2px solid var(--bg-black-100);
 }
 
-@media(max-width: 1099px){
+@media(max-width: 1319px){
+    @-webkit-keyframes scroll{
+        0%{
+            transform: translateX(0);
+        }
+        100%{
+            transform: translateX(calc(-200px * 4));
+        }
+    }
+    
+    @keyframes scroll{
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-200px * 4));
+        }
+    }
+}
+
+@media(max-width: 1199px){
     section .container{
         padding-top: 70px;
     }
@@ -1429,6 +1449,24 @@ h3.my-profession{
         width: 140px;
         height: 140px;
     }
+
+    @-webkit-keyframes scroll{
+        0%{
+            transform: translateX(0);
+        }
+        100%{
+            transform: translateX(calc(-150px * 4));
+        }
+    }
+    
+    @keyframes scroll{
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-150px * 4));
+        }
+    }
 }
 
 @media(max-width: 767px){
@@ -1450,6 +1488,24 @@ h3.my-profession{
     .review-container .container-row-1{
         padding-top: 30%;
         margin-top: 30%;
+    }
+
+    @-webkit-keyframes scroll{
+        0%{
+            transform: translateX(0);
+        }
+        100%{
+            transform: translateX(calc(-100px * 4));
+        }
+    }
+    
+    @keyframes scroll{
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-100px * 4));
+        }
     }
 }
 

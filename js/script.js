@@ -113,6 +113,7 @@ var typed = new Typed(".typing",{
     loop: true
 });
 // Home End
+
 // Project Start
 // Project filterable image hover effect start  
 let list = document.querySelectorAll('.list');

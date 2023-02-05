@@ -1531,4 +1531,22 @@ h3.my-profession{
         flex: 0 0 80%;
         width: 80%;
     }
+
+    @-webkit-keyframes scroll{
+        0%{
+            transform: translateX(0);
+        }
+        100%{
+            transform: translateX(calc(-70px * 4));
+        }
+    }
+    
+    @keyframes scroll{
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-70px * 4));
+        }
+    }
 }

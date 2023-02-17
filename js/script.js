@@ -5,84 +5,111 @@ const nav = document.querySelector(".nav"),
     allSection = document.querySelectorAll("section"),
     totalSection = allSection.length;
 
-    for(let i=0; i<totalNavList; i++){
-        const a = navList[i].querySelector("a");
-        a.addEventListener("click", function(){
+for(let i=0; i<totalNavList; i++){
+    const a = navList[i].querySelector("a");
+    a.addEventListener("click", function(){
 
-            removeBackSection();
-
-            for(let j=0; j<totalNavList; j++){
-                if(navList[j].querySelector("a").classList.contains("active")){
-                    addBackSection(j);
-                    //allSection[j].classList.add("back-section");
-                }
-                navList[j].querySelector("a").classList.remove("active");
-            }
-            this.classList.add("active");
-            showSection(this);
-            if(window.innerWidth < 1200){
-                asideSectionTogglerBtn();
-            }
-        });
-    }
-
-    function removeBackSection(){
-        for(let i=0; i<totalSection; i++){
-            allSection[i].classList.remove("back-section");
-        }
-    }
-
-    function addBackSection(num){
-        allSection[num].classList.add("back-section");
-    }
-
-    function showSection(element){
-        for(let i=0; i<totalSection; i++){
-            allSection[i].classList.remove("active");
-        }
-
-        const target = element.getAttribute("href").split("#")[1];
-        document.querySelector("#" + target).classList.add("active");
-    }
-
-    function updateNav(element){
-        for(let i =0; i<totalNavList; i++){
-            navList[i].querySelector("a").classList.remove("active");
-            const target = element.getAttribute("href").split("#")[1];
-            if(target === navList[i].querySelector("a").getAttribute("href").split("#")[1]){
-                navList[i].querySelector("a").classList.add("active");
-            }
-        }
-    }
-
-    document.querySelector(".more-me").addEventListener("click", function(){
-        const sectionIndex = this.getAttribute("data-section-index");
-        console.log(sectionIndex);
-        showSection(this);
-        updateNav(this);
         removeBackSection();
-        addBackSection(sectionIndex);
-    });
 
-    document.querySelector(".hire-me").addEventListener("click", function(){
-        const sectionIndex = this.getAttribute("data-section-index");
+        for(let j=0; j<totalNavList; j++){
+            if(navList[j].querySelector("a").classList.contains("active")){
+                addBackSection(j);
+                //allSection[j].classList.add("back-section");
+            }
+            navList[j].querySelector("a").classList.remove("active");
+        }
+        this.classList.add("active");
         showSection(this);
-        updateNav(this);
-        removeBackSection();
-        addBackSection(sectionIndex);
-    });
-
-    const navTogglerBtn = document.querySelector(".nav-toggler"),
-        aside = document.querySelector(".aside");
-
-        navTogglerBtn.addEventListener("click", () => {
+        if(window.innerWidth < 1200){
             asideSectionTogglerBtn();
-        });
-
-        function asideSectionTogglerBtn(){
-            aside.classList.toggle("open");
-            navTogglerBtn.classList.toggle("open");
+            for(i=0; i<totalSection; i++){
+                allSection[i].classList.remove("stop-scrolling");
+            }
         }
+    });
+}
+
+function removeBackSection(){
+    for(let i=0; i<totalSection; i++){
+        allSection[i].classList.remove("back-section");
+    }
+}
+
+function addBackSection(num){
+    allSection[num].classList.add("back-section");
+}
+
+function showSection(element){
+    for(let i=0; i<totalSection; i++){
+        allSection[i].classList.remove("active");
+    }
+
+    const target = element.getAttribute("href").split("#")[1];
+    document.querySelector("#" + target).classList.add("active");
+}
+
+function updateNav(element){
+    for(let i =0; i<totalNavList; i++){
+        navList[i].querySelector("a").classList.remove("active");
+        const target = element.getAttribute("href").split("#")[1];
+        if(target === navList[i].querySelector("a").getAttribute("href").split("#")[1]){
+            navList[i].querySelector("a").classList.add("active");
+        }
+    }
+}
+
+document.querySelector(".more-me").addEventListener("click", function(){
+    const sectionIndex = this.getAttribute("data-section-index");
+    console.log(sectionIndex);
+    showSection(this);
+    updateNav(this);
+    removeBackSection();
+    addBackSection(sectionIndex);
+});
+
+document.querySelector(".hire-me").addEventListener("click", function(){
+    const sectionIndex = this.getAttribute("data-section-index");
+    showSection(this);
+    updateNav(this);
+    removeBackSection();
+    addBackSection(sectionIndex);
+});
+
+const mainContent = document.querySelector(".main-content"),
+    navTogglerBtn = document.querySelector(".nav-toggler"),
+    aside = document.querySelector(".aside");
+
+mainContent.addEventListener("click", () =>{
+    if(navTogglerBtn.classList.contains("open") && aside.classList.contains("open")){
+        aside.classList.remove("open");
+        navTogglerBtn.classList.remove("open");
+
+        for(i=0; i<totalSection; i++){
+            allSection[i].classList.remove("stop-scrolling");
+        }
+    }
+});
+
+navTogglerBtn.addEventListener("click", () => {
+    asideSectionTogglerBtn();
+    fixedPosition();
+});
+
+function asideSectionTogglerBtn(){
+    aside.classList.toggle("open");
+    navTogglerBtn.classList.toggle("open");
+}
+
+function fixedPosition(){
+    for(i=0; i<totalSection; i++){
+        if(navTogglerBtn.classList.contains("open") && aside.classList.contains("open")){
+        allSection[i].classList.add("stop-scrolling");
+    }
+    else{
+        allSection[i].classList.remove("stop-scrolling");
+    }
+}
+}
 // Aside End
 
 // Logo Start
@@ -138,158 +165,30 @@ for(let i = 0; i<list.length; i++){
          }
     })
 }
-  
-// Image1 on click effect
-var modal1 = document.getElementById("myModal01");
-var zoom1 = document.getElementById("zoom01");
-var img1 = document.getElementById("myImg01");
-var modalImg1 = document.getElementById("img01");
-var captionText1 = document.getElementById("caption01");
 
-zoom1.onclick = function(){    
-    modal1.style.display = "block";
-    modalImg1.src = img1.src;
-    captionText1.innerHTML = img1.alt;      
+//Image on click effect start
+const modal = document.querySelectorAll(".modal"),
+    totalmodalList = modal.length,
+    zoom = document.querySelectorAll(".zoom"),
+    img = document.querySelectorAll(".myImg"),
+    modalImg = document.querySelectorAll(".modal-content"),
+    captionText = document.querySelectorAll(".caption-alt"),
+    span = document.querySelectorAll("#close");
+
+for(let i=0; i<totalmodalList; i++){
+    zoom[i].onclick = function(){    
+        modal[i].style.display = "block";
+        modalImg[i].src = img[i].src;
+        captionText[i].innerHTML = img[i].alt;
+        modal[i].style.zIndex = "10000";      
+    }
+
+    span[i].onclick = function(){ 
+        modal[i].style.display = "none";
+    }
+
 }
-
-var span1 = document.getElementsByClassName("close01")[0];
-
-span1.onclick = function() { 
-  modal1.style.display = "none";
-}
-
-// Image2 on click effect
-var modal2 = document.getElementById("myModal02");
-var zoom2 = document.getElementById("zoom02");
-var img2 = document.getElementById("myImg02");
-var modalImg2 = document.getElementById("img02");
-var captionText2 = document.getElementById("caption02");
-
-zoom2.onclick = function(){    
-    modal2.style.display = "block";
-    modalImg2.src = img2.src;
-    captionText2.innerHTML = img2.alt;      
-}
-
-var span2 = document.getElementsByClassName("close02")[0];
-
-span2.onclick = function() { 
-  modal2.style.display = "none";
-}
-
-// Image3 on click effect
-var modal3 = document.getElementById("myModal03");
-var zoom3 = document.getElementById("zoom03");
-var img3 = document.getElementById("myImg03");
-var modalImg3 = document.getElementById("img03");
-var captionText3 = document.getElementById("caption03");
-
-zoom3.onclick = function(){    
-    modal3.style.display = "block";
-    modalImg3.src = img3.src;
-    captionText3.innerHTML = img3.alt;      
-}
-
-var span3 = document.getElementsByClassName("close03")[0];
-
-span3.onclick = function() { 
-  modal3.style.display = "none";
-}
-
-// Image4 on click effect
-var modal4 = document.getElementById("myModal04");
-var zoom4 = document.getElementById("zoom04");
-var img4 = document.getElementById("myImg04");
-var modalImg4 = document.getElementById("img04");
-var captionText4 = document.getElementById("caption04");
-
-zoom4.onclick = function(){    
-    modal4.style.display = "block";
-    modalImg4.src = img4.src;
-    captionText4.innerHTML = img4.alt;      
-}
-
-var span4 = document.getElementsByClassName("close04")[0];
-
-span4.onclick = function() { 
-  modal4.style.display = "none";
-}
-
-// Image5 on click effect
-var modal5 = document.getElementById("myModal05");
-var zoom5 = document.getElementById("zoom05");
-var img5 = document.getElementById("myImg05");
-var modalImg5 = document.getElementById("img05");
-var captionText5 = document.getElementById("caption05");
-
-zoom5.onclick = function(){    
-    modal5.style.display = "block";
-    modalImg5.src = img5.src;
-    captionText5.innerHTML = img5.alt;      
-}
-
-var span5 = document.getElementsByClassName("close05")[0];
-
-span5.onclick = function() { 
-  modal5.style.display = "none";
-}
-
-// Image6 on click effect
-var modal6 = document.getElementById("myModal06");
-var zoom6 = document.getElementById("zoom06");
-var img6 = document.getElementById("myImg06");
-var modalImg6 = document.getElementById("img06");
-var captionText6 = document.getElementById("caption06");
-
-zoom6.onclick = function(){    
-    modal6.style.display = "block";
-    modalImg6.src = img6.src;
-    captionText6.innerHTML = img6.alt;      
-}
-
-var span6 = document.getElementsByClassName("close06")[0];
-
-span6.onclick = function() { 
-  modal6.style.display = "none";
-}
-
-// Image7 on click effect
-var modal7 = document.getElementById("myModal07");
-var zoom7 = document.getElementById("zoom07");
-var img7 = document.getElementById("myImg07");
-var modalImg7 = document.getElementById("img07");
-var captionText7 = document.getElementById("caption07");
-
-zoom7.onclick = function(){    
-    modal7.style.display = "block";
-    modalImg7.src = img7.src;
-    captionText7.innerHTML = img7.alt;      
-}
-
-var span7 = document.getElementsByClassName("close07")[0];
-
-span7.onclick = function() { 
-  modal7.style.display = "none";
-}
-
-// Image8 on click effect
-var modal8 = document.getElementById("myModal08");
-var zoom8 = document.getElementById("zoom08");
-var img8 = document.getElementById("myImg08");
-var modalImg8 = document.getElementById("img08");
-var captionText8 = document.getElementById("caption08");
-
-zoom8.onclick = function(){    
-    modal8.style.display = "block";
-    modalImg8.src = img8.src;
-    captionText8.innerHTML = img8.alt;      
-}
-
-var span8 = document.getElementsByClassName("close08")[0];
-
-span8.onclick = function() { 
-  modal8.style.display = "none";
-}
+//Image on click effect end
 // Project filterable image hover effect End
 // Project End
 
@@ -392,25 +291,25 @@ let progress4 = setInterval(() => {
 
 // Contact Start
 function sendMail(){
-        var params = {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            subject: document.getElementById("subject").value,
-            message: document.getElementById("message").value
-        };
+    var params = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value
+    };
     
-        const serviceID = "service_oog6c4h";
-        const templateID = "template_dkd93a5";
+    const serviceID = "service_oog6c4h";
+    const templateID = "template_dkd93a5";
     
-        emailjs.send(serviceID, templateID, params).then((res) =>{
-            document.getElementById("name").value = "";
-            document.getElementById("email").value = "";
-            document.getElementById("subject").value = "";
-            document.getElementById("message").value = "";
-            document.getElementById("cardBox").style.display = "block";
-            console.log(res);
-        })
-        .catch((err) => console.log(err));
+    emailjs.send(serviceID, templateID, params).then((res) =>{
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("subject").value = "";
+        document.getElementById("message").value = "";
+        document.getElementById("cardBox").style.display = "block";
+        console.log(res);
+    })
+    .catch((err) => console.log(err));
 }
 
 // Contact form pop-up button

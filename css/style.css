@@ -30,7 +30,7 @@ body.dark{
 body{
     line-height: 1.5;
     font-size: 16px;
-    font-family: 'Poppins' sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 section{
@@ -53,6 +53,11 @@ section.active{
     z-index: 2;
     opacity: 1;
     animation: slideSection 1s ease;
+}
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
 }
 
 @keyframes slideSection{
@@ -327,6 +332,7 @@ h3.my-profession{
 }
 
 .home-info p{
+    margin-top: 30px;
     margin-bottom: 70px;
     font-size: 20px;
     color: var(--text-black-700);
@@ -455,7 +461,8 @@ h3.my-profession{
     background-color: var(--bg-black-100);
     border: 1px solid var(--bg-black-50);
     border-radius: 10px;
-    padding: 10px 4px;    
+    padding: 10px 4px;
+    margin-bottom: 5px;    
 }
 
 .about-hobbies .hobbies-item{
@@ -469,7 +476,8 @@ h3.my-profession{
     border: 1px solid var(--bg-black-50);
     border-radius: 10px;
     padding: 10px 4px;
-    margin-bottom: 0.7%;    
+    margin-bottom: 0.7%;
+    margin-bottom: 5px;    
 }
 
 .about .about-content .personal-info .about-interest .interest-item i, .about-hobbies .hobbies-item i{
@@ -494,7 +502,6 @@ h3.my-profession{
 
 .about .about-content .personal-info .buttons{
     margin-top: 30px;
-    
 }
 
 .about .about-content .personal-info .buttons .btn{
@@ -1081,8 +1088,15 @@ h3.my-profession{
     font-size: 25px;
     margin-bottom: 20px;
     margin-top: 60px;
-    margin-bottom: 40px;
 }
+
+.service .service-sub-title{
+    color: var(--text-black-900);
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 60px;
+}
+
 
 .service-benefits-item{
     flex: 0 0 25%;
@@ -1394,7 +1408,6 @@ h3.my-profession{
     }
 
     .aside .nav-toggler.open{
-        
         left: 270px;
     }
 
@@ -1510,6 +1523,16 @@ h3.my-profession{
 }
 
 @media(max-width: 479px){
+    .about-hobbies .hobbies-item{
+        max-width: 18%;
+    }
+
+    .about .about-content .personal-info .about-interest h4, .about-hobbies h4{
+        font-weight: 600;
+        padding: 10px 0;
+        font-size: 10px;
+    }
+
     .service-benefits-item{
         flex: 0 0 100%;
         max-width: 100%;

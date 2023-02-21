@@ -87,12 +87,26 @@ mainContent.addEventListener("click", () =>{
         for(i=0; i<totalSection; i++){
             allSection[i].classList.remove("stop-scrolling");
         }
-    }
+    };
+
+    if(cardBox.style.display = "block"){
+        cardBox.style.display = "none";
+    };
 });
 
 navTogglerBtn.addEventListener("click", () => {
     asideSectionTogglerBtn();
     fixedPosition();
+
+    if(cardBox.style.display = "block"){
+        cardBox.style.display = "none";
+    }
+
+    for(j=0; j<totalmodalList; j++){
+        if(modal[j].style.display = "block"){
+            modal[j].style.display = "none";
+        };
+    };
 });
 
 function asideSectionTogglerBtn(){

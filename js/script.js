@@ -226,20 +226,29 @@ leftbtn.addEventListener("click", function(){
 let circleProgress1 = document.querySelector('.service-circle-1'),
     progressValue1 = document.querySelector('.progress-value-1');
 
+const serviceSec = document.querySelector(".service");
+
 let progressStartvalue1 = 0,
-    progressEndvalue1 = 105,
-    speed1 = 50;
+progressEndvalue1 = 105,
+speed1 = 50;
+
 
 let progress1 = setInterval(() => {
-    progressStartvalue1++;
+    if(serviceSec.classList.contains("active")){
+        
+        progressStartvalue1++;
 
-    progressValue1.textContent = `${progressStartvalue1*2}↑`
-    circleProgress1.style.background = `conic-gradient(var(--skin-color) ${progressStartvalue1 * 3.6}deg, #fff 0deg)`
+        progressValue1.textContent = `${progressStartvalue1*2}↑`
+        circleProgress1.style.background = `conic-gradient(var(--skin-color) ${progressStartvalue1 * 3.6}deg, #fff 0deg)`
 
-    if(progressStartvalue1 == progressEndvalue1){
-        clearInterval(progress1);
+        if(progressStartvalue1 == progressEndvalue1){
+            clearInterval(progress1);
+        }
     }
 }, speed1);
+
+
+
 // Service circle progress bar end 1
 
 // Service circle progress start 2
@@ -251,13 +260,16 @@ let progressEndvalue2 = 13;
 let speed2 = 400;
 
 let progress2 = setInterval(() => {
-    progressStartvalue2++;
+    if(serviceSec.classList.contains("active")){
+        
+        progressStartvalue2++;
 
-    progressValue2.textContent = `${progressStartvalue2}>`
-    circleProgress2.style.background = `conic-gradient(var(--skin-color) ${progressStartvalue2*8 * 3.6}deg, #fff 0deg)`
+        progressValue2.textContent = `${progressStartvalue2}>`
+        circleProgress2.style.background = `conic-gradient(var(--skin-color) ${progressStartvalue2*8 * 3.6}deg, #fff 0deg)`
 
-    if(progressStartvalue2 == progressEndvalue2){
-        clearInterval(progress2);
+        if(progressStartvalue2 == progressEndvalue2){
+            clearInterval(progress2);
+        }
     }
 }, speed2);
 // Service circle progress bar end 2
@@ -271,13 +283,16 @@ let progressEndvalue3 = 19;
 let speed3 = 250;
 
 let progress3 = setInterval(() => {
-    progressStartvalue3++;
+    if(serviceSec.classList.contains("active")){
 
-    progressValue3.textContent = `${progressStartvalue3}+`
-    circleProgress3.style.background = `conic-gradient(var(--skin-color) ${progressStartvalue3*5.5 * 3.6}deg, #fff 0deg)`
+        progressStartvalue3++;
 
-    if(progressStartvalue3 == progressEndvalue3){
-        clearInterval(progress3);
+        progressValue3.textContent = `${progressStartvalue3}+`
+        circleProgress3.style.background = `conic-gradient(var(--skin-color) ${progressStartvalue3*5.5 * 3.6}deg, #fff 0deg)`
+
+        if(progressStartvalue3 == progressEndvalue3){
+            clearInterval(progress3);
+        }
     }
 }, speed3);
 // Service circle progress bar end 3
@@ -291,13 +306,16 @@ let progressEndvalue4 = 100;
 let speed4 = 50;
 
 let progress4 = setInterval(() => {
-    progressStartvalue4++;
+    if(serviceSec.classList.contains("active")){
+        
+        progressStartvalue4++;
 
-    progressValue4.textContent = `${progressStartvalue4}%`
-    circleProgress4.style.background = `conic-gradient(var(--skin-color) ${progressStartvalue4 * 3.6}deg, #fff 0deg)`
+        progressValue4.textContent = `${progressStartvalue4}%`
+        circleProgress4.style.background = `conic-gradient(var(--skin-color) ${progressStartvalue4 * 3.6}deg, #fff 0deg)`
 
-    if(progressStartvalue4 == progressEndvalue4){
-        clearInterval(progress4);
+        if(progressStartvalue4 == progressEndvalue4){
+            clearInterval(progress4);
+        }
     }
 }, speed4);
 // Service circle progress bar end 4

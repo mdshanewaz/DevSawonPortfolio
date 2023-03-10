@@ -24,6 +24,7 @@ for(let i=0; i<totalNavList; i++){
             asideSectionTogglerBtn();
             for(i=0; i<totalSection; i++){
                 allSection[i].classList.remove("stop-scrolling");
+                darkblackshadow[i].style.display = "none";
             }
         }
     });
@@ -78,6 +79,7 @@ document.querySelector(".hire-me").addEventListener("click", function(){
 const mainContent = document.querySelector(".main-content"),
     navTogglerBtn = document.querySelector(".nav-toggler"),
     aside = document.querySelector(".aside");
+    darkblackshadow = document.querySelectorAll(".dark-black-shadow")
 
 mainContent.addEventListener("click", () =>{
     if(navTogglerBtn.classList.contains("open") && aside.classList.contains("open")){
@@ -86,6 +88,7 @@ mainContent.addEventListener("click", () =>{
 
         for(i=0; i<totalSection; i++){
             allSection[i].classList.remove("stop-scrolling");
+            darkblackshadow[i].style.display = "none";
         }
     };
 
@@ -117,12 +120,14 @@ function asideSectionTogglerBtn(){
 function fixedPosition(){
     for(i=0; i<totalSection; i++){
         if(navTogglerBtn.classList.contains("open") && aside.classList.contains("open")){
-        allSection[i].classList.add("stop-scrolling");
+            allSection[i].classList.add("stop-scrolling");
+            darkblackshadow[i].style.display = "block";
+        }
+        else{
+            allSection[i].classList.remove("stop-scrolling");
+            darkblackshadow[i].style.display = "none";
+        }
     }
-    else{
-        allSection[i].classList.remove("stop-scrolling");
-    }
-}
 }
 // Aside End
 
@@ -187,7 +192,7 @@ const modal = document.querySelectorAll(".modal"),
     img = document.querySelectorAll(".myImg"),
     modalImg = document.querySelectorAll(".modal-content"),
     captionText = document.querySelectorAll(".caption-alt"),
-    span = document.querySelectorAll("#close");
+    close = document.querySelectorAll("#close");
 
 for(let i=0; i<totalmodalList; i++){
     zoom[i].onclick = function(){    
@@ -197,7 +202,7 @@ for(let i=0; i<totalmodalList; i++){
         modal[i].style.zIndex = "10000";      
     }
 
-    span[i].onclick = function(){ 
+    close[i].onclick = function(){ 
         modal[i].style.display = "none";
     }
 

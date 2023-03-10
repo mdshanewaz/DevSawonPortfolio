@@ -69,6 +69,17 @@ section.active{
     }
 }
 
+.dark-black-shadow{
+    background: #000;
+    opacity: 0.9;
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
 section.back-section{
     z-index: 1;
 }
@@ -348,7 +359,7 @@ h3.my-profession{
     width: 100%;
     margin: auto;
     padding-top: 60px;
-    padding-bottom: 70px;
+    padding-bottom: 70px;  
 }
 
 .row{
@@ -683,7 +694,7 @@ h3.my-profession{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 5%; /* Location of the box */
+    padding-top: 7%; /* Location of the box */
     left: 0;
     top: 0;
     width: 100vw; /* Full width */
@@ -831,12 +842,6 @@ h3.my-profession{
     text-align: center;
     font-size: 15px;
     margin-bottom: 60px;
-}
-
-.project .coding{
-    flex: 0 0 100%;
-    width: 100%;
-    background: blue;
 }
 
 .project .coding-item{
